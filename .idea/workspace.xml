@@ -4,27 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="160cf08a-d510-4431-93fa-361124855b61" name="Changes" comment="Add lesson03">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ClassifyCuisine/ClassifyCuisineResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ComplexSearch/ComplexSearchResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ComplexSearch/Result.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/MealPlanner/Add/MealPlannerRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/MealPlanner/Add/MealPlannerRequestBuilder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/MealPlanner/Add/MealPlannerResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/MealPlanner/Add/Measures.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/MealPlanner/Add/Metric.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/MealPlanner/Add/Original.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/MealPlanner/Add/Us.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Utils/Utils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/lesson03/EndPoints.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/App.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/lesson03/AbstractTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/lesson03/AbstractTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/lesson03/MealplannerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/lesson03/MealplannerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/lesson03/SpoonacularGetTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/lesson03/SpoonacularGetTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/lesson03/SpoonacularPostTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/lesson03/SpoonacularPostTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="160cf08a-d510-4431-93fa-361124855b61" name="Changes" comment="Add lesson04" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -71,12 +51,12 @@
       <module name="GB_JAVA_API" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.lesson03.*" />
+          <option name="PATTERN" value="org.example.lesson04.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="org.example.lesson03" />
-      <option name="MAIN_CLASS_NAME" value="org.example.lesson03.MealplannerTest" />
+      <option name="MAIN_CLASS_NAME" value="org.example.lesson04.MealplannerTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -86,12 +66,12 @@
       <module name="GB_JAVA_API" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.lesson03.*" />
+          <option name="PATTERN" value="org.example.lesson04.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="org.example.lesson03" />
-      <option name="MAIN_CLASS_NAME" value="org.example.lesson03.MealplannerTest" />
+      <option name="MAIN_CLASS_NAME" value="org.example.lesson04.MealplannerTest" />
       <option name="METHOD_NAME" value="addMealPlannerTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -102,12 +82,12 @@
       <module name="GB_JAVA_API" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.lesson03.*" />
+          <option name="PATTERN" value="org.example.lesson04.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="org.example.lesson03" />
-      <option name="MAIN_CLASS_NAME" value="org.example.lesson03.MealplannerTest" />
+      <option name="MAIN_CLASS_NAME" value="org.example.lesson04.MealplannerTest" />
       <option name="METHOD_NAME" value="getMealPlannerTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -118,12 +98,12 @@
       <module name="GB_JAVA_API" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.lesson03.*" />
+          <option name="PATTERN" value="org.example.lesson04.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="org.example.lesson03" />
-      <option name="MAIN_CLASS_NAME" value="org.example.lesson03.SpoonacularPostTest" />
+      <option name="MAIN_CLASS_NAME" value="org.example.lesson04.SpoonacularPostTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -133,12 +113,12 @@
       <module name="GB_JAVA_API" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.lesson03.*" />
+          <option name="PATTERN" value="org.example.lesson04.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="org.example.lesson03" />
-      <option name="MAIN_CLASS_NAME" value="org.example.lesson03.SpoonacularPostTest" />
+      <option name="MAIN_CLASS_NAME" value="org.example.lesson04.SpoonacularPostTest" />
       <option name="METHOD_NAME" value="getGyrosCuisineTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -171,7 +151,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663260553376</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Add lesson04">
+      <created>1663319022869</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1663319022869</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -187,7 +174,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add lesson03" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add lesson03" />
+    <MESSAGE value="Add lesson04" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add lesson04" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

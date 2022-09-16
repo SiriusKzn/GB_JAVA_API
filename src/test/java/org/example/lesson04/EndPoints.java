@@ -1,4 +1,4 @@
-package org.example.lesson03;
+package org.example.lesson04;
 
 public class EndPoints extends AbstractTest {
     private static String addMealPlanner = getBaseUrl() + "mealplanner/" + getUsername() + "/shopping-list/items";

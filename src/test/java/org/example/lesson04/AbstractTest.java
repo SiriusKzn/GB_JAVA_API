@@ -1,4 +1,4 @@
-package org.example.lesson03;
+package org.example.lesson04;
 
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
