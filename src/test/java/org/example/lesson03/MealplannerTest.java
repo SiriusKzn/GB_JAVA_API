@@ -2,56 +2,69 @@ package org.example.lesson03;
 
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
-import org.junit.jupiter.api.AfterEach;
+import org.example.MealPlanner.Add.MealPlannerRequest;
+import org.example.MealPlanner.Add.MealPlannerRequestBuilder;
+import org.example.MealPlanner.Add.MealPlannerResponse;
+import org.example.MealPlanner.Get.MealPlannerList;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
-public class MealplannerTest extends AbstractTest{
+public class MealplannerTest extends AbstractTest {
     private static int id;
 
     @BeforeAll
-    static void setUp(){
+    static void setUp() {
         RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
     }
 
     @Test
-    void endpointTest(){
-        JsonPath response = given()
-                .queryParam("apiKey", getApiKey())
-                .queryParam("hash", getHash())
+    @Order(1)
+    void addMealPlannerTest() {
+        MealPlannerRequest request = new MealPlannerRequestBuilder()
+                .setItem("1 kilogram meat")
+                .setAisle("Meat")
+                .setParse(true)
+                .createMealPlannerRequest();
+
+        MealPlannerResponse response = given().spec(getRequestMealPlannerSpec())
                 .when()
-                .body("{\n"
-                        + " \"item\": \"1 kilogram meat\",\n"
-                        + " \"aisle\": \"Meat\","
-                        + " \"parse\": true"
-                        + "}")
-                .post(getBaseUrl() + "mealplanner/"+ getUsername() + "/shopping-list/items")
-                .then()
-                .contentType("application/json")
-                .statusCode(200)
+                .body(request)
+                .post(EndPoints.getAddMealPlanner())
+                .then().spec(getResponseSpec())
                 .extract()
-                .body()
-                .jsonPath();
-        id = response.get("id");
-        assertThat(response.get("ingredientId"), equalTo(1065062));
-        assertThat(response.get("aisle"), equalTo("Meat"));
+                .response()
+                .as(MealPlannerResponse.class);
+        id = response.getId();
+        assertThat(response.getIngredientId(), equalTo(1065062));
+        assertThat(response.getAisle(), equalTo("Meat"));
     }
 
-    @AfterEach
-    void teardownTest(){
-        JsonPath response = given()
-                .queryParam("apiKey", getApiKey())
-                .queryParam("hash", getHash())
+    @Test
+    @Order(2)
+    void getMealPlannerTest() {
+        MealPlannerList response = given().spec(getRequestMealPlannerSpec())
                 .when()
-                .delete(getBaseUrl()+"mealplanner/"+getUsername()+"/shopping-list/items/"+id)
-                .then()
-                .contentType("application/json")
-                .statusCode(200)
+                .get(EndPoints.getGetMealPlanner())
+                .then().spec(responseSpec)
+                .extract()
+                .response()
+                .as(MealPlannerList.class);
+        assertThat(response.getCost(), equalTo(Double.valueOf("886.67")));
+    }
+
+
+    @Test
+    @Order(3)
+    void teardownTest() {
+        JsonPath response = given().spec(getRequestMealPlannerSpec())
+                .when()
+                .delete(EndPoints.getDeleteMealPlanner(id))
+                .then().spec(getResponseSpec())
                 .extract()
                 .body()
                 .jsonPath();

@@ -2,6 +2,7 @@ package org.example.lesson03;
 
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
+import org.example.ComplexSearch.ComplexSearchResponse;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -13,94 +14,74 @@ import static org.hamcrest.core.IsEqual.equalTo;
 
 public class SpoonacularGetTest extends AbstractTest {
     @BeforeAll
-    static void setUp(){
+    static void setUp() {
         RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
     }
 
     @Test
-    void getPastaTest(){
-       JsonPath response = given()
-                .queryParam("apiKey", getApiKey())
-                .queryParam("query", "pasta")
+    void getPastaTest() {
+        JsonPath response = given().spec(getRequestGetSpec())
                 .when()
-                .get(getBaseUrl() + "recipes/complexSearch")
-                .then()
-                .statusCode(200)
+                .get(EndPoints.getComplexSearch())
+                .then().spec(getResponseSpec())
                 .extract()
-                .body()
                 .jsonPath();
-       assertThat(response.get("totalResults"), equalTo(223));
+        assertThat(response.get("totalResults"), equalTo(223));
     }
 
     @Test
-    void getVegatarianPastaTest(){
-        JsonPath response = given()
-                .queryParam("apiKey", getApiKey())
-                .queryParam("query", "pasta")
-                .queryParam("diet","vegetarian")
+    void getVegatarianPastaTest() {
+        ComplexSearchResponse response = given().spec(getRequestGetSpec())
+                .queryParam("diet", "vegetarian")
                 .when()
-                .get(getBaseUrl() + "recipes/complexSearch")
-                .then()
-                .contentType("application/json")
-                .statusCode(200)
+                .get(EndPoints.getComplexSearch())
+                .then().spec(getResponseSpec())
                 .extract()
-                .body()
-                .jsonPath();
-        assertThat(response.get("totalResults"), equalTo(34));
+                .response()
+                .as(ComplexSearchResponse.class);
+        assertThat(response.getTotalResults(), equalTo(34));
     }
 
     @ParameterizedTest
-    @CsvSource({"10, 7","50, 29", "100, 64"})
-    void getMaxCalciumPastaTest(int maxCalcium, int totalResults){
-        JsonPath response = given()
-                .queryParam("apiKey", getApiKey())
-                .queryParam("query", "pasta")
-                .queryParam("maxCalcium",maxCalcium)
+    @CsvSource({"10, 7", "50, 29", "100, 64"})
+    void getMaxCalciumPastaTest(int maxCalcium, int totalResults) {
+        ComplexSearchResponse response = given().spec(getRequestGetSpec())
+                .queryParam("maxCalcium", maxCalcium)
                 .when()
-                .get(getBaseUrl() + "recipes/complexSearch")
-                .then()
-                .statusCode(200)
-                .contentType("application/json")
+                .get(EndPoints.getComplexSearch())
+                .then().spec(getResponseSpec())
                 .extract()
-                .body()
-                .jsonPath();
-        assertThat(response.get("totalResults"), equalTo(totalResults));
+                .response()
+                .as(ComplexSearchResponse.class);
+        assertThat(response.getTotalResults(), equalTo(totalResults));
     }
 
     @ParameterizedTest
-    @CsvSource({"100, 204","30, 21"})
-    void getMaxReadyTimePastaTest(int maxReadyTime, int totalResults){
-        JsonPath response = given()
-                .queryParam("apiKey", getApiKey())
-                .queryParam("query", "pasta")
-                .queryParam("maxReadyTime",maxReadyTime)
+    @CsvSource({"100, 204", "30, 21"})
+    void getMaxReadyTimePastaTest(int maxReadyTime, int totalResults) {
+        ComplexSearchResponse response = given().spec(getRequestGetSpec())
+                .queryParam("maxReadyTime", maxReadyTime)
                 .when()
-                .get(getBaseUrl() + "recipes/complexSearch")
-                .then()
-                .statusCode(200)
-                .contentType("application/json")
+                .get(EndPoints.getComplexSearch())
+                .then().spec(getResponseSpec())
                 .extract()
-                .body()
-                .jsonPath();
-        assertThat(response.get("totalResults"), equalTo(totalResults));
+                .response()
+                .as(ComplexSearchResponse.class);
+        assertThat(response.getTotalResults(), equalTo(totalResults));
     }
 
     @ParameterizedTest
     @CsvSource({"100", "2"})
-    void getNumberPastaTest(int number){
-        JsonPath response = given()
-                .queryParam("apiKey", getApiKey())
-                .queryParam("query", "pasta")
+    void getNumberPastaTest(int number) {
+        ComplexSearchResponse response = given().spec(getRequestGetSpec())
                 .queryParam("number", number)
                 .when()
-                .get(getBaseUrl() + "recipes/complexSearch")
-                .then()
-                .statusCode(200)
-                .contentType("application/json")
+                .get(EndPoints.getComplexSearch())
+                .then().spec(getResponseSpec())
                 .extract()
-                .body()
-                .jsonPath();
-        assertThat(response.get("number"), equalTo(number));
+                .response()
+                .as(ComplexSearchResponse.class);
+        assertThat(response.getNumber(), equalTo(number));
     }
 
 
